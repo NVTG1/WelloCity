@@ -4,6 +4,7 @@ import Background from './components/Background';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import ContactUs from './components/ContactUs'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/contactUs" element={<ContactUs/>}/>
         </Routes>
       </BrowserRouter>
     </div>
