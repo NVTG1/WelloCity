@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, Suspense, lazy } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 
 const ExercisesContext = createContext();
 
@@ -6,8 +6,6 @@ const ExercisesContext = createContext();
 export const useExercises = () => {
     return useContext(ExercisesContext);
 };
-
-const Exercises = lazy(() => import('../components/Exercises'))
 
 // Create the provider component
 //children: Exercises Component
@@ -54,9 +52,7 @@ export const ExercisesProvider = ({ children }) => {
                 fetchExercises,
             }}
         >
-            <Suspense fallback={<div>Loading...</div>}>
-                {children}
-            </Suspense>
+            {children}
         </ExercisesContext.Provider>
     );
 };

@@ -4,6 +4,7 @@ import Logo from './assets/Logo.png';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
 import { ExercisesProvider } from './ContextAPI/ExercisesContext';
+import { RecipeProvider } from './ContextAPI/RecipeContext';
 
 // Lazy loading all components
 const Home = lazy(() => import('./components/Home'));
@@ -23,15 +24,19 @@ function App() {
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/recipes" element={<Recipes />} />
+            
+            <Route path="/recipes" element={<RecipeProvider>
+              <Recipes />
+            </RecipeProvider>} />
+
             <Route path="/contactUs" element={<ContactUs />} />
 
             <Route path="/exercises" element={
               <ExercisesProvider>
                 <Exercises />
-              </ExercisesProvider>} 
+              </ExercisesProvider>}
             />
-            
+
             <Route path="/fitnessTracker" element={<FitnessTracker />} />
           </Routes>
         </Suspense>

@@ -1,28 +1,32 @@
 import React, { useState } from 'react';
+import { useRecipe } from '../ContextAPI/RecipeContext';
 
 function Recipes() {
-    const [dietSuggestions, setDietSuggestions] = useState([]);
-    const [selectedDiet, setSelectedDiet] = useState('');
+    const {
+        dietSuggestions,
+        selectedDiet,
+        setSelectedDiet,
+        fetchUserDiet,
+      } = useRecipe();   //As useState used in RecipeContext threfore, we directly use useRecipe
 
-    // Fetching diet suggestions from Spoonacular API
-    const fetchUserDiet = async (dietType) => {
-        const apiKey = '32a8f96f9b1c4f489a8a80d4f51fc20e';
-        const endpoint = `https://api.spoonacular.com/recipes/complexSearch?diet=${dietType}&number=8&apiKey=${apiKey}`;
+    // const fetchUserDiet = async (dietType) => {
+    //     const apiKey = '32a8f96f9b1c4f489a8a80d4f51fc20e';
+    //     const endpoint = `https://api.spoonacular.com/recipes/complexSearch?diet=${dietType}&number=8&apiKey=${apiKey}`;
 
-        try {
-            const response = await fetch(endpoint);
-            const data = await response.json();
+    //     try {
+    //         const response = await fetch(endpoint);
+    //         const data = await response.json();
 
-            if (data.results && data.results.length > 0) {
-                setDietSuggestions(data.results);
-            } else {
-                setDietSuggestions([]);
-            }
-        } catch (error) {
-            console.error('Error fetching diet data:', error);
-            setDietSuggestions([]);
-        }
-    };
+    //         if (data.results && data.results.length > 0) {
+    //             setDietSuggestions(data.results);
+    //         } else {
+    //             setDietSuggestions([]);
+    //         }
+    //     } catch (error) {
+    //         console.error('Error fetching diet data:', error);
+    //         setDietSuggestions([]);
+    //     }
+    // };
 
     // Handle diet type selection
     const handleDietSelect = (e) => {
