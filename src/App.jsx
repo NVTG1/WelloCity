@@ -7,6 +7,7 @@ import Home from './components/Home';
 import ContactUs from './components/ContactUs'
 import Recipes from './components/Recipes'
 import Exercises from './components/Exercises';
+import FitnessTracker from './components/FitnessTracker';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/recipes" element={<Recipes />} />
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="/exercises" element={<Exercises />}/>
+          <Route path="/fitnessTracker" element={<FitnessTracker/>}/>
         </Routes>
       </BrowserRouter>
     </div>
