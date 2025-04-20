@@ -1,20 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';  //Imported Chart form chart.js to render charts
+import { useFitnessTracker } from '../ContextAPI/FitnessTrackerContext';
 
-const YT_KEY = 'AIzaSyBq5kyPvRL21mhEip1YGkE1IPOA27bC-YA'; // YouTube
+// const YT_KEY = 'AIzaSyBq5kyPvRL21mhEip1YGkE1IPOA27bC-YA'; // YouTube
 
 const FitnessTracker = () => {
-  const [progressData, setProgressData] = useState({  //Stores the data of 4 weeks for yoga, workout and calories
-    labels: ["week1", "week2", "week3", "week4"],
-    workout: [0, 0, 0, 0],
-    yoga: [0, 0, 0, 0],
-    calories: [0, 0, 0, 0],
-  });
+  // const [progressData, setProgressData] = useState({  //Stores the data of 4 weeks for yoga, workout and calories
+  //   labels: ["week1", "week2", "week3", "week4"],
+  //   workout: [0, 0, 0, 0],
+  //   yoga: [0, 0, 0, 0],
+  //   calories: [0, 0, 0, 0],
+  // });
+
+  const {
+    progressData,
+    updateProgress,
+    resetProgress,
+    youtubeQuery,
+    setYoutubeQuery,
+    fetchYogaVideos,
+    videoResults
+  } = useFitnessTracker();
 
   const [filter, setFilter] = useState("all");
-  const [videoResults, setVideoResults] = useState([]);
 
-  //To access Charts.
+  // const [videoResults, setVideoResults] = useState([]);
+
+  // To access Charts.
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
 
@@ -23,7 +35,7 @@ const FitnessTracker = () => {
   const [yogaInput, setYogaInput] = useState('');
   const [caloriesInput, setCaloriesInput] = useState('');
 
-  const [youtubeQuery, setYoutubeQuery] = useState('');
+  // const [youtubeQuery, setYoutubeQuery] = useState('');
 
   const filterMap = {
     workout: [0],
@@ -32,12 +44,12 @@ const FitnessTracker = () => {
     all: [0, 1, 2],
   };
 
-  useEffect(() => {
-    // Stores the data inside the browser's local storage in the form of String.
-    // Which is then converted to an object by JSON.parse()
-    const saved = JSON.parse(localStorage.getItem('progressData'));
-    if (saved) setProgressData(saved);
-  }, []);
+  // useEffect(() => {
+  //   // Stores the data inside the browser's local storage in the form of String.
+  //   // Which is then converted to an object by JSON.parse()
+  //   const saved = JSON.parse(localStorage.getItem('progressData'));
+  //   if (saved) setProgressData(saved);
+  // }, []);
 
   useEffect(() => {
     if (chartRef.current) {
@@ -119,18 +131,20 @@ const FitnessTracker = () => {
       return;
     }
 
-    const updated = { ...progressData };
-    const index = updated.labels.indexOf(weekInput);  //Stores the index of week to update the corresponding data
+    // const updated = { ...progressData };
+    // const index = updated.labels.indexOf(weekInput);  //Stores the index of week to update the corresponding data
 
-    //If index is found, the respective workout, yoga and calories are updated
-    if (index !== -1) {
-      updated.workout[index] = parseInt(workoutInput);
-      updated.yoga[index] = parseInt(yogaInput);
-      updated.calories[index] = parseInt(caloriesInput);
-    }
+    // //If index is found, the respective workout, yoga and calories are updated
+    // if (index !== -1) {
+    //   updated.workout[index] = parseInt(workoutInput);
+    //   updated.yoga[index] = parseInt(yogaInput);
+    //   updated.calories[index] = parseInt(caloriesInput);
+    // }
 
-    setProgressData(updated);
-    localStorage.setItem('progressData', JSON.stringify(updated));  //Save the data in the local storage so that it persists even after reloading
+    // setProgressData(updated);
+    // localStorage.setItem('progressData', JSON.stringify(updated));  //Save the data in the local storage so that it persists even after reloading
+
+    updateProgress(weekInput, workoutInput, yogaInput, caloriesInput);
 
     //Resetting the input fields
     setWeekInput('');
@@ -141,40 +155,42 @@ const FitnessTracker = () => {
 
   //Reset button function
   const handleResetProgress = () => {
-    const resetData = {
-      labels: ["week1", "week2", "week3", "week4"],
-      workout: [0, 0, 0, 0],
-      yoga: [0, 0, 0, 0],
-      calories: [0, 0, 0, 0],
-    };
-    setProgressData(resetData);
-    localStorage.setItem('progressData', JSON.stringify(resetData));
+    // const resetData = {
+    //   labels: ["week1", "week2", "week3", "week4"],
+    //   workout: [0, 0, 0, 0],
+    //   yoga: [0, 0, 0, 0],
+    //   calories: [0, 0, 0, 0],
+    // };
+    // setProgressData(resetData);
+    // localStorage.setItem('progressData', JSON.stringify(resetData));
+
+    resetProgress();
   };
 
   // For Recommended Yoga Videos
-  const fetchYogaVideos = async () => {
-    if (!youtubeQuery) return alert("Please enter a yoga style.");
+  // const fetchYogaVideos = async () => {
+  //   if (!youtubeQuery) return alert("Please enter a yoga style.");
 
-    const q = `${youtubeQuery} yoga`;  //Building a search query
-    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${q}&maxResults=5&key=${YT_KEY}`;
+  //   const q = `${youtubeQuery} yoga`;  //Building a search query
+  //   const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${q}&maxResults=5&key=${YT_KEY}`;
 
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      const videos = (data.items || []).filter((item) => {
-        const title = item.snippet.title.toLowerCase();  //Gives title of video
-        const desc = item.snippet.description.toLowerCase(); // Gives description of video
-        return title.includes("yoga") || desc.includes("yoga"); //Checking if title and descrition includes "yoga" or not 
-      });
-      setVideoResults(videos);
-    } catch (err) {
-      console.error("Video fetch error", err);
-    }
-  };
+  //   try {
+  //     const res = await fetch(url);
+  //     const data = await res.json();
+  //     const videos = (data.items || []).filter((item) => {
+  //       const title = item.snippet.title.toLowerCase();  //Gives title of video
+  //       const desc = item.snippet.description.toLowerCase(); // Gives description of video
+  //       return title.includes("yoga") || desc.includes("yoga"); //Checking if title and descrition includes "yoga" or not 
+  //     });
+  //     setVideoResults(videos);
+  //   } catch (err) {
+  //     console.error("Video fetch error", err);
+  //   }
+  // };
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-12">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex-row gap-12 p-6 max-w-6xl mx-auto space-y-12">
 
         {/* Progress Tracker */}
         <section className="space-y-4">
