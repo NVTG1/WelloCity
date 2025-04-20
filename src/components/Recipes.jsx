@@ -1,39 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useRecipe } from '../ContextAPI/RecipeContext';
 
 function Recipes() {
+
+    // We have already initialized the state variable globally inside the ExercisesContext.jsx, i.e, Context Provider
     const {
         dietSuggestions,
         selectedDiet,
         setSelectedDiet,
         fetchUserDiet,
-      } = useRecipe();   //As useState used in RecipeContext threfore, we directly use useRecipe
+    } = useRecipe();   
 
-    // const fetchUserDiet = async (dietType) => {
-    //     const apiKey = '32a8f96f9b1c4f489a8a80d4f51fc20e';
-    //     const endpoint = `https://api.spoonacular.com/recipes/complexSearch?diet=${dietType}&number=8&apiKey=${apiKey}`;
-
-    //     try {
-    //         const response = await fetch(endpoint);
-    //         const data = await response.json();
-
-    //         if (data.results && data.results.length > 0) {
-    //             setDietSuggestions(data.results);
-    //         } else {
-    //             setDietSuggestions([]);
-    //         }
-    //     } catch (error) {
-    //         console.error('Error fetching diet data:', error);
-    //         setDietSuggestions([]);
-    //     }
-    // };
-
-    // Handle diet type selection
+    // Handling selection
     const handleDietSelect = (e) => {
         setSelectedDiet(e.target.value);
     };
 
-    // Handle form submission
+    // Handling submission
     const handleSubmit = (e) => {
         e.preventDefault();
         if (selectedDiet) {
