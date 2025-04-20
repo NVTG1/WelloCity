@@ -1,0 +1,35 @@
+[
+    {
+      "question": "How do I track my weekly fitness progress?",
+      "answer": "Navigate to the 'Progress Tracker' section in the app. There, you can input your workout duration, yoga sessions, and calories burned for each week. The data is visualized in charts for easy monitoring."
+    },
+    {
+      "question": "Are the yoga videos beginner-friendly?",
+      "answer": "Yes, most of the videos are curated to be suitable for all levels. You can also search for specific styles like 'beginner yoga' or 'restorative yoga' for a more tailored experience."
+    },
+    {
+      "question": "How is my data stored and used?",
+      "answer": "Your progress data is stored locally in your browser's storage and is not shared with any third party. This ensures your privacy while allowing you to track your wellness journey."
+    },
+    {
+      "question": "Can I get personalized wellness tips?",
+      "answer": "Yes! Based on your weekly inputs, the app provides dynamic health feedback and wellness tips that align with your goals and current activity levels."
+    },
+    {
+      "question": "What is the source of your health recommendations?",
+      "answer": "Our health tips and feedback are based on widely accepted guidelines from organizations like the WHO, CDC, and peer-reviewed wellness research."
+    },
+    {
+      "question": "Can I reset or clear all progress data?",
+      "answer": "Yes. Go to the 'Progress Tracker' and click the 'Reset Progress' button to clear your weekly inputs and start fresh."
+    },
+    {
+      "question": "How often is the video content updated?",
+      "answer": "The app pulls the latest yoga videos from YouTube in real-time based on your search queries. This ensures that content remains fresh and relevant."
+    },
+    {
+      "question": "Can I use this app offline?",
+      "answer": "Some features like progress tracking work offline thanks to local storage. However, internet access is required to fetch YouTube videos and external blog content."
+    }
+  ]
+  

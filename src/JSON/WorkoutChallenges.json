@@ -1,0 +1,121 @@
+[
+    {
+      "id": 1,
+      "title": "Beginner Full Body Routine",
+      "description": "This beginner-friendly challenge includes a full-body workout that focuses on building strength and improving mobility. It’s perfect for those just starting out or getting back into fitness.",
+      "difficulty": "beginner",
+      "duration": "7 days",
+      "goals": [
+        "3 sets of 10 squats",
+        "3 sets of 10 push-ups (modified if necessary)",
+        "3 sets of 15-second planks",
+        "3 sets of 10 lunges"
+      ],
+      "tip": "Focus on form rather than speed. Don’t worry if you can’t complete all reps at first; consistency is key!"
+    },
+    {
+      "id": 2,
+      "title": "Intermediate Strength Building",
+      "description": "This challenge focuses on building muscle strength and endurance. It’s designed for those who have some experience with weight training and are ready to level up their workouts.",
+      "difficulty": "intermediate",
+      "duration": "14 days",
+      "goals": [
+        "4 sets of 12 squats",
+        "4 sets of 10 push-ups",
+        "3 sets of 30-second planks",
+        "4 sets of 12 dumbbell rows",
+        "3 sets of 15 lunges per leg"
+      ],
+      "tip": "Increase the weight of your exercises progressively. Ensure you’re using proper form to prevent injury."
+    },
+    {
+      "id": 3,
+      "title": "Advanced HIIT Challenge",
+      "description": "An intense High-Intensity Interval Training (HIIT) challenge designed to push your limits. This is for individuals who are already in good shape and looking to improve their cardiovascular fitness and burn fat.",
+      "difficulty": "advanced",
+      "duration": "21 days",
+      "goals": [
+        "30-second sprint, 30-second rest (repeat 10 times)",
+        "4 sets of 20 burpees",
+        "4 sets of 30 seconds jump squats",
+        "3 sets of 15 push-ups (clap push-ups for advanced)",
+        "3 sets of 30 seconds mountain climbers"
+      ],
+      "tip": "Rest is crucial. If you feel too fatigued, take a break before continuing to avoid injury."
+    },
+    {
+      "id": 4,
+      "title": "Yoga Flexibility Boost",
+      "description": "This yoga challenge is perfect for those looking to improve their flexibility and mobility. Ideal for both beginners and experienced practitioners, it will help you with muscle recovery, balance, and flexibility.",
+      "difficulty": "beginner to intermediate",
+      "duration": "10 days",
+      "goals": [
+        "5 minutes of downward dog",
+        "3 sets of 30 seconds child’s pose",
+        "5 minutes of cat-cow stretches",
+        "3 sets of 1-minute seated forward fold",
+        "5 minutes of gentle stretching for the hamstrings"
+      ],
+      "tip": "Breathe deeply during each stretch. Don’t push too hard, and take your time to increase your flexibility gradually."
+    },
+    {
+      "id": 5,
+      "title": "Core Strength Challenge",
+      "description": "This challenge targets the core muscles, including abs, lower back, and obliques. It’s great for improving overall stability, posture, and endurance.",
+      "difficulty": "intermediate",
+      "duration": "14 days",
+      "goals": [
+        "3 sets of 20 sit-ups",
+        "3 sets of 30-second planks",
+        "4 sets of 15 leg raises",
+        "3 sets of 15 Russian twists",
+        "3 sets of 30-second side planks per side"
+      ],
+      "tip": "Ensure you engage your core throughout each movement. Avoid arching your lower back during planks and leg raises."
+    },
+    {
+      "id": 6,
+      "title": "Cardio Endurance Challenge",
+      "description": "This cardio challenge is designed to improve your stamina and endurance. It includes running, cycling, and bodyweight exercises to keep your heart rate up.",
+      "difficulty": "intermediate",
+      "duration": "30 days",
+      "goals": [
+        "30-minute brisk walk or jog (3 times a week)",
+        "20 minutes of cycling (3 times a week)",
+        "20-minute bodyweight workout (squats, lunges, jumping jacks, etc.)",
+        "Weekly long-distance run (5K or more)"
+      ],
+      "tip": "Increase the intensity gradually. Add a bit more time or distance to each session to challenge yourself."
+    },
+    {
+      "id": 7,
+      "title": "Leg Strength & Conditioning",
+      "description": "Focus on building strong legs and glutes with this leg-strengthening challenge. A mix of squats, lunges, and other bodyweight exercises will help you improve power and mobility.",
+      "difficulty": "beginner to intermediate",
+      "duration": "14 days",
+      "goals": [
+        "3 sets of 15 bodyweight squats",
+        "3 sets of 10 lunges per leg",
+        "4 sets of 30-second wall sits",
+        "3 sets of 20 calf raises",
+        "3 sets of 10 glute bridges"
+      ],
+      "tip": "Start with bodyweight exercises, then add weight as your strength increases. Focus on proper form, especially during squats and lunges."
+    },
+    {
+      "id": 8,
+      "title": "Upper Body Strength Challenge",
+      "description": "Designed to enhance upper body strength, this challenge focuses on arms, shoulders, and back using bodyweight and dumbbells for resistance training.",
+      "difficulty": "intermediate",
+      "duration": "14 days",
+      "goals": [
+        "3 sets of 10 push-ups (or knee push-ups)",
+        "3 sets of 15 dumbbell bicep curls",
+        "3 sets of 10 tricep dips",
+        "4 sets of 12 dumbbell shoulder presses",
+        "3 sets of 15 bent-over rows"
+      ],
+      "tip": "Focus on controlled movements to get the most out of your workout. Keep your core engaged for stability during upper body exercises."
+    }
+  ]
+  

@@ -1,0 +1,73 @@
+[
+    {
+      "id": 1,
+      "title": "Hydration Reminder",
+      "tip": "Drink at least 8 glasses of water per day to keep your body hydrated and your mind clear.",
+      "category": "nutrition",
+      "frequency": "daily"
+    },
+    {
+      "id": 2,
+      "title": "Digital Detox Hour",
+      "tip": "Take one hour away from all screens each evening to reduce eye strain and improve sleep quality.",
+      "category": "mental health",
+      "frequency": "daily"
+    },
+    {
+      "id": 3,
+      "title": "Stretch Breaks",
+      "tip": "Every 2 hours, take a 5-minute stretch break to prevent muscle stiffness and improve blood circulation.",
+      "category": "fitness",
+      "frequency": "multiple daily"
+    },
+    {
+      "id": 4,
+      "title": "Mindful Breathing",
+      "tip": "Practice 3 minutes of deep breathing in the morning to center your mind and reduce anxiety.",
+      "category": "mental health",
+      "frequency": "daily"
+    },
+    {
+      "id": 5,
+      "title": "Colorful Plate Rule",
+      "tip": "Include at least three different colored fruits or vegetables in your meals for a variety of nutrients.",
+      "category": "nutrition",
+      "frequency": "meal-based"
+    },
+    {
+      "id": 6,
+      "title": "Sleep Schedule",
+      "tip": "Try to go to bed and wake up at the same time every day to regulate your internal clock.",
+      "category": "sleep",
+      "frequency": "daily"
+    },
+    {
+      "id": 7,
+      "title": "Gratitude Journaling",
+      "tip": "Write down 3 things you're grateful for each night to cultivate positivity and reduce stress.",
+      "category": "mental health",
+      "frequency": "daily"
+    },
+    {
+      "id": 8,
+      "title": "No Sugar Challenge",
+      "tip": "Cut added sugars from your diet for one week to reset cravings and support weight loss.",
+      "category": "nutrition",
+      "frequency": "weekly challenge"
+    },
+    {
+      "id": 9,
+      "title": "Walking Meetings",
+      "tip": "If possible, take work calls while walking to add steps and refresh your brain.",
+      "category": "fitness",
+      "frequency": "as needed"
+    },
+    {
+      "id": 10,
+      "title": "Sunlight Boost",
+      "tip": "Spend at least 15 minutes in the morning sunlight to enhance your vitamin D levels and mood.",
+      "category": "mental health",
+      "frequency": "daily"
+    }
+  ]
+  
