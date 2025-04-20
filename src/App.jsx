@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import ContactUs from './components/ContactUs'
 import Recipes from './components/Recipes'
+import Exercises from './components/Exercises';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/recipes" element={<Recipes />} />
           <Route path="/contactUs" element={<ContactUs />} />
+          <Route path="/exercises" element={<Exercises />}/>
         </Routes>
       </BrowserRouter>
     </div>
