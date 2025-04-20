@@ -6,6 +6,7 @@ import { ExercisesProvider } from './ContextAPI/ExercisesContext';
 import { RecipeProvider } from './ContextAPI/RecipeContext';
 import { FitnessTrackerProvider } from './ContextAPI/FitnessTrackerContext';
 import { TipsAndChallengesProvider } from './ContextAPI/TipsAndChallengesContext';
+import { ContactUsProvider } from './ContextAPI/ContactUsContext';
 
 // Lazy loading all components
 const Home = lazy(() => import('./components/Home'));
@@ -33,7 +34,11 @@ function App() {
                 <Recipes />
               </RecipeProvider>} />
 
-            <Route path="/contactUs" element={<ContactUs />} />
+            {/**Wrapping FitnessTracker component in Context Provider*/}
+            <Route path="/contactUs" element={
+              <ContactUsProvider>
+                <ContactUs />
+              </ContactUsProvider>} />
 
             {/**Wrapping Exercise component in Context Provider*/}
             <Route path="/exercises" element={
