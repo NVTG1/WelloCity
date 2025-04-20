@@ -2,25 +2,29 @@ import React, { createContext, useState, useContext } from 'react';
 
 const ExercisesContext = createContext();
 
-// Custom hook to use the context
+// Custom hook to use the ExercisesContext directly
 export const useExercises = () => {
     return useContext(ExercisesContext);
 };
 
-// Create the provider component
-//children: Exercises Component
+// Provider component
+// children: Exercises Component
 export const ExercisesProvider = ({ children }) => {
+    // Initializing the state variables using useState globally
     const [exerciseSuggestions, setExerciseSuggestions] = useState([]);
     const [loading, setLoading] = useState(false);
     const [selectedExercise, setSelectedExercise] = useState('');  // Managing the selectedExercise
 
     // Fetching exercises based on the body part
+    // type: body part name
     const fetchExercises = async (type) => {
         const apiKey = 'cc65018371msh27356ce58896615p1ebc2djsn88b4e9e7967b';
-        const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${type}?limit=8`;
+        // Fetches 7 exercises of the body part selected
+        const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${type}?limit=7`;
 
         setLoading(true);
-        try {
+        try 
+        {
             const response = await fetch(url, {
                 method: 'GET',
                 headers: {
@@ -35,19 +39,24 @@ export const ExercisesProvider = ({ children }) => {
             } else {
                 setExerciseSuggestions([]);
             }
-        } catch (error) {
+
+            setLoading(false);
+        } 
+
+        catch (error) 
+        {
             console.error('Error fetching exercise data:', error);
             setExerciseSuggestions([]);
-        } finally {
-            setLoading(false);
         }
     };
 
     return (
+
+        //Everything returned can be used by the children wrapped inside
         <ExercisesContext.Provider
             value={{
-                exerciseSuggestions,
-                selectedExercise,
+                exerciseSuggestions,    
+                selectedExercise,       
                 setSelectedExercise,
                 fetchExercises,
             }}
