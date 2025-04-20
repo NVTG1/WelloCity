@@ -2,11 +2,13 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const FitnessTrackerContext = createContext();
 
+// Custom Hook to use the FitnessTrackerContext directly
 export const useFitnessTracker = () => useContext(FitnessTrackerContext);
 
-// Replace with your actual YouTube API key
 const YT_KEY = 'AIzaSyBq5kyPvRL21mhEip1YGkE1IPOA27bC-YA';
 
+//children: FitnessTracker 
+// Initializing the state variables using useState
 export const FitnessTrackerProvider = ({ children }) => {
     const [progressData, setProgressData] = useState({
         labels: ["week1", "week2", "week3", "week4"],
@@ -18,11 +20,14 @@ export const FitnessTrackerProvider = ({ children }) => {
     const [youtubeQuery, setYoutubeQuery] = useState('');
     const [videoResults, setVideoResults] = useState([]);
 
+    // It checks if there is data present in the local storage, if there is, it sets it to progress data.
+    // This ensures that data is not refreshed when the page reloads
     useEffect(() => {
         const saved = JSON.parse(localStorage.getItem('progressData'));
         if (saved) setProgressData(saved);
     }, []);
 
+    // Checks the index of the entered week, update the datasets accordingly and saves that data to both state variable and local storage
     const updateProgress = (weekInput, workout, yoga, calories) => {
         const updated = { ...progressData };
         const index = updated.labels.indexOf(weekInput);
@@ -36,6 +41,7 @@ export const FitnessTrackerProvider = ({ children }) => {
         }
     };
 
+    // Resets all the datasets values and also of local storage
     const resetProgress = () => {
         const resetData = {
             labels: ["week1", "week2", "week3", "week4"],
@@ -47,6 +53,7 @@ export const FitnessTrackerProvider = ({ children }) => {
         localStorage.setItem('progressData', JSON.stringify(resetData));
     };
 
+    // Fetching Youtube Videos according to the input given by the user
     const fetchYogaVideos = async () => {
         if (!youtubeQuery) return alert("Please enter a yoga style.");
 
@@ -58,18 +65,23 @@ export const FitnessTrackerProvider = ({ children }) => {
             const data = await res.json();
 
             const videos = (data.items || []).filter((item) => {
+                // Gives the title of video
                 const title = item.snippet.title.toLowerCase();
+                // Gives the description of video
                 const desc = item.snippet.description.toLowerCase();
+                // Checking if the title and description includes "yoga" or not
                 return title.includes("yoga") || desc.includes("yoga");
             });
-
             setVideoResults(videos);
-        } catch (err) {
+        }
+        catch (err) {
             console.error("YouTube fetch error", err);
         }
     };
 
     return (
+
+        //Everything returned can be used by the children wrapped inside
         <FitnessTrackerContext.Provider
             value={{
                 progressData,
