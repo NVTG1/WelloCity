@@ -17,6 +17,7 @@ export const ContactUsProvider = ({ children }) => {
     }, []);
 
     return (
+        //Everything returned can be used by the children wrapped inside
         <ContactUsContext.Provider value={{ faqs }}>
             {children}
         </ContactUsContext.Provider>
