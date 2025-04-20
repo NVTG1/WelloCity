@@ -16,6 +16,7 @@ function Navbar() {
                 <Link to="/recipes">Recipes</Link>
                 <Link to="/exercises">Exercises</Link>
                 <Link to="/fitnessTracker">Fitness Tracker</Link>
+                <Link to="/tipsAndChallenges">Tips And Challenges</Link>
                 <Link to="/contactUs">Contact Us</Link>
             </div>
         </div>
