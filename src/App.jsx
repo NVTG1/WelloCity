@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import { ExercisesProvider } from './ContextAPI/ExercisesContext';
 import { RecipeProvider } from './ContextAPI/RecipeContext';
 import { FitnessTrackerProvider } from './ContextAPI/FitnessTrackerContext';
+import { TipsAndChallengesProvider } from './ContextAPI/TipsAndChallengesContext';
 
 // Lazy loading all components
 const Home = lazy(() => import('./components/Home'));
@@ -12,6 +13,7 @@ const ContactUs = lazy(() => import('./components/ContactUs'));
 const Recipes = lazy(() => import('./components/Recipes'));
 const Exercises = lazy(() => import('./components/Exercises'));
 const FitnessTracker = lazy(() => import('./components/FitnessTracker'));
+const TipsAndChallenges = lazy(() => import('./components/TipsAndChallenges'))
 
 function App() {
   return (
@@ -45,6 +47,12 @@ function App() {
               <FitnessTrackerProvider>
                 <FitnessTracker />
               </FitnessTrackerProvider>} />
+
+            {/**Wrapping TipsAndChallenges component in Context Provider*/}
+            <Route path="/tipsAndChallenges" element={
+              <TipsAndChallengesProvider>
+                <TipsAndChallenges />
+              </TipsAndChallengesProvider>} />
 
           </Routes>
         </Suspense>
