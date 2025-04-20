@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useContactUs } from "../ContextAPI/ContactUsContext"; 
 
 function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+
+  const { faqs } = useContactUs(); // get FAQs from context
 
   // Function to handle form submission
   const handleSubmit = (e) => {
@@ -15,16 +18,15 @@ function Contact() {
       alert("Do you want to submit the Form?");
       setSubmitted(true); 
 
-      //Reset the form once submitted
+      // Reset the form once submitted
       setName("");
       setEmail("");
       setMessage("");
 
-      //To remove the message after 3 seconds of being submitted
-      setTimeout(()=>{
+      // To remove the message after 3 seconds of being submitted
+      setTimeout(() => {
         setSubmitted(false);
-      },3000);
-
+      }, 3000);
     } else {
       alert("Please fill in all the fields.");
     }
@@ -86,13 +88,30 @@ function Contact() {
         </div>
       </form>
 
-      {/* Success Message displayed only after ok is clicked on alert message*/}
-      {/*if statement doesn't work in return part of React therefore we have the synatx as this*/}
+      {/* Success Message displayed only after ok is clicked on alert message */}
+      {/* if statement doesn't work in return part of React therefore we have the syntax as this */}
       {submitted && (
         <div className="mt-6 text-center text-green-600 font-semibold text-lg">
           Your message has been successfully submitted!
         </div>
       )}
+
+      {/* FAQs Section */}
+      <div className="mt-12 max-w-4xl mx-auto">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Frequently Asked Questions</h2>
+        {faqs.length > 0 ? (
+          <ul className="space-y-6">
+            {faqs.map((faq, index) => (
+              <li key={index} className="bg-gray-100 p-4 rounded-md shadow">
+                <h3 className="font-semibold text-lg text-gray-800">{faq.question}</h3>
+                <p className="text-gray-700 mt-2">{faq.answer}</p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-center text-gray-600">Loading FAQs...</p>
+        )}
+      </div>
     </div>
   );
 }
