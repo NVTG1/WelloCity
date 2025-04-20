@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'; //Using Browser Router to route the lin
 
 function Navbar() {
     return (
-        <div className="bg-white w-full px-6 py-4">
+        <div className="bg-blue w-full px-6 py-4">
 
             {/* Heading */}
             <h1 className="text-4xl font-extrabold text-black text-center mb-3">
