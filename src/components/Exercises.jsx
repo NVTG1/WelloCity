@@ -1,32 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useExercises } from '../ContextAPI/ExercisesContext';
 
 function Exercises() {
-    const { exerciseSuggestions, fetchExercises, selectedExercise, setSelectedExercise } = useExercises();  //Using context values not useState as already managed by context
+    // We have already initialized the state variable globally inside the ExercisesContext.jsx, i.e, Context Provider
+    const { exerciseSuggestions, fetchExercises, selectedExercise, setSelectedExercise } = useExercises();
 
     // Handling selection
     const handleExerciseSelect = (e) => {
         setSelectedExercise(e.target.value);
     };
-
-    // const fetchUserDiet = async (dietType) => {
-    //     const apiKey = '32a8f96f9b1c4f489a8a80d4f51fc20e';
-    //     const endpoint = https://api.spoonacular.com/recipes/complexSearch?diet=${dietType}&number=8&apiKey=${apiKey};
-
-    //     try {
-    //         const response = await fetch(endpoint);
-    //         const data = await response.json();
-
-    //         if (data.results && data.results.length > 0) {
-    //             setDietSuggestions(data.results);
-    //         } else {
-    //             setDietSuggestions([]);
-    //         }
-    //     } catch (error) {
-    //         console.error('Error fetching diet data:', error);
-    //         setDietSuggestions([]);
-    //     }
-    // };
 
     // Handling submit
     const handleSubmit = (e) => {
@@ -73,7 +55,7 @@ function Exercises() {
 
             {/* Display exercise suggestions */}
 
-            {/*Checking if the array has elemts or not*/}
+            {/*Checking if the array has elements or not*/}
             {exerciseSuggestions.length > 0 ? (
                 // grid-cols-1: 1 column by default, md:grid-cols-2: 2 column on medium screens and lg:grid-cols-3: 3 colums on large screen
                 <div id="exerciseSuggestions" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
