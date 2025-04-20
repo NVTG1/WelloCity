@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from 'react';
 import './App.css';
-import Logo from './assets/Logo.png';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
 import { ExercisesProvider } from './ContextAPI/ExercisesContext';
@@ -13,7 +12,6 @@ const ContactUs = lazy(() => import('./components/ContactUs'));
 const Recipes = lazy(() => import('./components/Recipes'));
 const Exercises = lazy(() => import('./components/Exercises'));
 const FitnessTracker = lazy(() => import('./components/FitnessTracker'));
-const Background = lazy(() => import('./components/Background'));
 
 function App() {
   return (
@@ -24,24 +22,30 @@ function App() {
         {/* Suspense for lazy-loaded components */}
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
+
             <Route path="/" element={<Home />} />
 
-            <Route path="/recipes" element={<RecipeProvider>
-              <Recipes />
-            </RecipeProvider>} />
+            {/**Wrapping Recipes component in Context Provider*/}
+            <Route path="/recipes" element={
+              <RecipeProvider>
+                <Recipes />
+              </RecipeProvider>} />
 
             <Route path="/contactUs" element={<ContactUs />} />
 
+            {/**Wrapping Exercise component in Context Provider*/}
             <Route path="/exercises" element={
               <ExercisesProvider>
                 <Exercises />
               </ExercisesProvider>}
             />
 
-            <Route path="/fitnessTracker" element={<FitnessTrackerProvider>
-              <FitnessTracker />
-            </FitnessTrackerProvider>} />
-            
+            {/**Wrapping FitnessTracker component in Context Provider*/}
+            <Route path="/fitnessTracker" element={
+              <FitnessTrackerProvider>
+                <FitnessTracker />
+              </FitnessTrackerProvider>} />
+
           </Routes>
         </Suspense>
       </BrowserRouter>
