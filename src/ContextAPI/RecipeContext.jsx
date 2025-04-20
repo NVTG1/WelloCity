@@ -1,16 +1,18 @@
 import React, { createContext, useState, useContext } from 'react';
 
+// Global state container for Recipes
 const RecipeContext = createContext();
 
-//Custom hook
+// Custom Hook to use the Recipes directly
 export const useRecipe = () => useContext(RecipeContext);
 
-//children: Recipes.jsx
-//Defining state variables here
+// children: Recipes.jsx
+// Initializing state variables using useState
 export const RecipeProvider = ({ children }) => {
     const [dietSuggestions, setDietSuggestions] = useState([]);
     const [selectedDiet, setSelectedDiet] = useState('');
 
+    //Fetching Recipes from Spoonacular API
     const fetchUserDiet = async (dietType) => {
         const apiKey = "25bf6946922949898c0ff96581051502";
         const endpoint = `https://api.spoonacular.com/recipes/complexSearch?diet=${dietType}&number=8&apiKey=${apiKey}`;
@@ -31,6 +33,8 @@ export const RecipeProvider = ({ children }) => {
     };
 
     return (
+
+        //Everything returned can be used by the children wrapped inside
         <RecipeContext.Provider
             value={{
                 dietSuggestions,
