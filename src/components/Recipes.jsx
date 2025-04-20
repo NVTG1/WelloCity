@@ -55,6 +55,7 @@ function Recipes() {
                         value={selectedDiet}
                         onChange={handleDietSelect}
                     >
+                        <option value="">---Choose a diet type---</option>
                         <option value="vegetarian">Vegetarian</option>
                         <option value="vegan">Vegan</option>
                         <option value="glutenFree">Gluten-Free</option>
