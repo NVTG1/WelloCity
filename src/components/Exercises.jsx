@@ -1,45 +1,12 @@
 import React, { useState } from 'react';
+import { useExercises } from '../ContextAPI/ExercisesContext';
 
 function Exercises() {
-    const [selectedExercise, setSelectedExercise] = useState('');
-    const [exerciseSuggestions, setExerciseSuggestions] = useState([]);
+    const { exerciseSuggestions, fetchExercises, selectedExercise, setSelectedExercise } = useExercises();  //Using context values not useState as already managed by context
 
     // Handling selection
     const handleExerciseSelect = (e) => {
         setSelectedExercise(e.target.value);
-    };
-
-    // Fetching from ExerciseDB API
-    const fetchExercises = async (type) => {
-        const apiKey = 'cc65018371msh27356ce58896615p1ebc2djsn88b4e9e7967b';
-        const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${type}?limit=8`;
-
-        try 
-        {
-            const response = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    'X-RapidAPI-Key': apiKey,
-                    'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
-                },
-            });
-
-            const data = await response.json();
-            // console.log('API Response:', data); 
-
-            if (data.length > 0) {
-                setExerciseSuggestions(data);
-            } 
-            else {
-                setExerciseSuggestions([]);  //Resetting the array
-            }
-        } 
-
-        catch (error) 
-        {
-            console.error('Error fetching exercise data:', error);
-            setExerciseSuggestions([]);  //Resetting the array
-        }
     };
 
     // Handling submit
