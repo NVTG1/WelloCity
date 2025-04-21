@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
+// Creating a new context
 const FitnessTrackerContext = createContext();
 
 // Custom Hook to use the FitnessTrackerContext directly
@@ -58,7 +59,7 @@ export const FitnessTrackerProvider = ({ children }) => {
         if (!youtubeQuery) return alert("Please enter a yoga style.");
 
         const q = `${youtubeQuery} yoga`;
-        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${q}&maxResults=5&key=${YT_KEY}`;
+        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${q}&maxResults=6&key=${YT_KEY}`;
 
         try {
             const res = await fetch(url);

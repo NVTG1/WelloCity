@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
+// Creating a new context
 const ContactUsContext = createContext();
 
 // Custom hook to use ContactUsContext directly
@@ -11,9 +12,9 @@ export const ContactUsProvider = ({ children }) => {
 
     useEffect(() => {
         fetch("/src/JSON/FAQs.json")
-            .then(res => res.json())
-            .then(data => setFaqs(data))
-            .catch(err => console.error("Failed to load FAQs:", err));
+            .then(res => res.json())       // Converts the data into JSON format
+            .then(data => setFaqs(data))   // Setting the state
+            .catch(err => console.error("Failed to load FAQs:", err));  //Catches error if any
     }, []);
 
     return (

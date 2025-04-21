@@ -6,38 +6,72 @@ const TipsAndChallenges = () => {
     const { wellnessTips, workoutChallenges } = useTipsAndChallenges();
 
     return (
-        <div>
-            {/**Tips*/}
-            <h2>Wellness Tips</h2>
-            <ul>
-                {wellnessTips.map(tip => (
-                    <li key={tip.id}>
-                        <h3>{tip.title}</h3>
-                        {/**Displays the description of the tips text*/}
-                        <p>{tip.tip}</p>
-                    </li>
-                ))}
-            </ul>
+        <div className="p-4 space-y-8">
+            
+            {/** Wellness Tips Section */}
+            <div className="border p-6 rounded-lg shadow-md">
+                <h2 className="text-2xl font-bold mb-4">Wellness Tips</h2>
+                <table className="w-full table-auto border-collapse rounded-lg overflow-hidden shadow-md border">
+                    <thead className="bg-blue-100">
+                        <tr>
+                            <th className="p-3 text-left">Title</th>
+                            <th className="p-3 text-left">Tip</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {wellnessTips.map(tip => (
+                            <tr key={tip.id} className="border-b">
+                                <td className="p-3">
+                                    <div className="flex items-center">
+                                        {tip.title}
+                                    </div>
+                                </td>
+                                <td className="p-3">
+                                    <div className="flex items-center">
+                                        <div className="h-full border-r-2 border-gray-300 mr-4"></div>
+                                        {tip.tip}
+                                    </div>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
 
-            {/**Workout Challenges*/}
-            <h2>Workout Challenges</h2>
-            <ul>
-                {workoutChallenges.map(challenge => (
-                    <li key={challenge.id}>
-                        <h3>{challenge.title}</h3>
-                        <p>{challenge.description}</p>
-                        <p><strong>Duration:</strong> {challenge.duration}</p>
-                        <p><strong>Difficulty:</strong> {challenge.difficulty}</p>
-                        <h4>Goals:</h4>
-                        <ul>
-                            {challenge.goals.map((goal, index) => (
-                                <li key={index}>{goal}</li>
-                            ))}
-                        </ul>
-                        <p><strong>Tip:</strong> {challenge.tip}</p>
-                    </li>
-                ))}
-            </ul>
+            {/** Workout Challenges Section */}
+            <div className="border p-6 rounded-lg shadow-md">
+                <h2 className="text-2xl font-bold mb-4">Workout Challenges</h2>
+                <table className="w-full table-auto border-collapse rounded-lg overflow-hidden shadow-md border">
+                    <thead className="bg-green-100">
+                        <tr>
+                            <th className="p-3 text-left">Title</th>
+                            <th className="p-3 text-left">Description</th>
+                            <th className="p-3 text-left">Duration</th>
+                            <th className="p-3 text-left">Difficulty</th>
+                            <th className="p-3 text-left">Goals</th>
+                            <th className="p-3 text-left">Tip</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {workoutChallenges.map(challenge => (
+                            <tr key={challenge.id} className="border-b">
+                                <td className="p-3">{challenge.title}</td>
+                                <td className="p-3">{challenge.description}</td>
+                                <td className="p-3">{challenge.duration}</td>
+                                <td className="p-3">{challenge.difficulty}</td>
+                                <td className="p-3">
+                                    <ul>
+                                        {challenge.goals.map((goal, index) => (
+                                            <li key={index}>{goal}</li>
+                                        ))}
+                                    </ul>
+                                </td>
+                                <td className="p-3">{challenge.tip}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

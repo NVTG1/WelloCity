@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// Create context for wellness tips and workout challenges
+// Creating a context
 const TipsAndChallengesContext = createContext();
 
 // Custom Hook to use the TipsAndChallengesContext directly

@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext } from 'react';
 
+// Creating a context
 const ExercisesContext = createContext();
 
 // Custom hook to use the ExercisesContext directly
@@ -19,8 +20,9 @@ export const ExercisesProvider = ({ children }) => {
     // type: body part name
     const fetchExercises = async (type) => {
         const apiKey = 'cc65018371msh27356ce58896615p1ebc2djsn88b4e9e7967b';
-        // Fetches 7 exercises of the body part selected
-        const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${type}?limit=7`;
+        
+        // Fetches 6 exercises of the body part selected
+        const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${type}?limit=6`;
 
         setLoading(true);
         try 
