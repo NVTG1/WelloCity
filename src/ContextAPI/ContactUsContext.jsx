@@ -11,7 +11,7 @@ export const ContactUsProvider = ({ children }) => {
     const [faqs, setFaqs] = useState([]);
 
     useEffect(() => {
-        fetch("/src/JSON/FAQs.json")
+        fetch("/JSON/FAQs.json")
             .then(res => res.json())       // Converts the data into JSON format
             .then(data => setFaqs(data))   // Setting the state
             .catch(err => console.error("Failed to load FAQs:", err));  //Catches error if any

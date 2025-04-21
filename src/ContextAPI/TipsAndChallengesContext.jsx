@@ -14,13 +14,13 @@ export const TipsAndChallengesProvider = ({ children }) => {
 
     useEffect(() => {
         // Loading wellness tips from JSON file
-        fetch("/src/JSON/WellnessTips.json")
+        fetch("/JSON/WellnessTips.json")
             .then(res => res.json())
             .then(data => setWellnessTips(data))
             .catch(err => console.error("Failed to load wellness tips:", err));
 
         // Fetching workout challenges from JSON file
-        fetch("/src/JSON/WorkoutChallenges.json")
+        fetch("/JSON/WorkoutChallenges.json")
             .then(res => res.json())
             .then(data => setWorkoutChallenges(data))
             .catch(err => console.error("Failed to load workout challenges:", err));
