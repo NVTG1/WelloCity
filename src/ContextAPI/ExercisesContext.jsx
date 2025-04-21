@@ -19,7 +19,8 @@ export const ExercisesProvider = ({ children }) => {
     // Fetching exercises based on the body part
     // type: body part name
     const fetchExercises = async (type) => {
-        const apiKey = 'cc65018371msh27356ce58896615p1ebc2djsn88b4e9e7967b';
+        const ApiKey = import.meta.env.VITE_API_KEY_Exercises;
+        const apiKey = 'cc65018371msh27356ce58896615p1ebc2djsn88b4e9e7967b'; 
         
         // Fetches 6 exercises of the body part selected
         const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${type}?limit=6`;

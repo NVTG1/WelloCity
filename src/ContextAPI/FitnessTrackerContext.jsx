@@ -6,7 +6,8 @@ const FitnessTrackerContext = createContext();
 // Custom Hook to use the FitnessTrackerContext directly
 export const useFitnessTracker = () => useContext(FitnessTrackerContext);
 
-const YT_KEY = 'AIzaSyBq5kyPvRL21mhEip1YGkE1IPOA27bC-YA';
+const yT_KEY = import.meta.env.VITE_API_KEY_Youtube;
+const YT_KEY = "AIzaSyBNz-On1zN2dl3dVXvsHGrWLfCISZe1hgw";
 
 //children: FitnessTracker 
 // Initializing the state variables using useState
