@@ -14,7 +14,8 @@ export const RecipeProvider = ({ children }) => {
 
     //Fetching Recipes
     const fetchUserDiet = async (dietType) => {
-        const apiKey = import.meta.env.VITE_API_KEY_Recipes;
+        const ApiKey = import.meta.env.VITE_API_KEY_Recipes;
+        const apiKey = "25bf6946922949898c0ff96581051502"
         const endpoint = `https://api.spoonacular.com/recipes/complexSearch?diet=${dietType}&number=9&apiKey=${apiKey}`;
 
         try {
